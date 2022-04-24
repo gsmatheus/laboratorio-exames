@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
 import { PessoaService } from './pessoa.service';
 import { CreatePessoaDto } from './dtos/create-pessoa.dto';
 import { ReturnPessoaDto } from './dtos/return-pessoa.dto';
@@ -9,7 +9,7 @@ export class PessoaController {
 
   @Post()
   async createPessoa(
-    @Body() createPessoaDto: CreatePessoaDto,
+    @Body(ValidationPipe) createPessoaDto: CreatePessoaDto,
   ): Promise<ReturnPessoaDto> {
     const pessoa = await this.pessoaService.createPessoa(createPessoaDto);
 
