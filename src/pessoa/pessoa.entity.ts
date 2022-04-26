@@ -6,7 +6,9 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { Exame } from '../exame/exame.entity';
 
 @Entity()
 @Unique(['cpf', 'email'])
@@ -34,4 +36,7 @@ export class Pessoa extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Exame, (exame) => exame.pessoa)
+  exames: Exame[];
 }
