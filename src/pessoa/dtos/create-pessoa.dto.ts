@@ -1,10 +1,4 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  MaxLength,
-  MinLength,
-  Length,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, Length } from 'class-validator';
 
 export class CreatePessoaDto {
   @IsNotEmpty({ message: 'O campo nome precisa ser preenchido.' })
