@@ -10,6 +10,7 @@ export class ExameRepository extends Repository<Exame> {
 
     const exame = this.create();
     exame.pessoa = pessoa;
+    exame.categoria = categoria;
     exame.url_pdf = url;
 
     try {
@@ -19,6 +20,7 @@ export class ExameRepository extends Repository<Exame> {
       delete exame.updatedAt;
       delete exame.pessoa.createdAt;
       delete exame.pessoa.status;
+      delete exame.categoria.createdAt;
 
       return exame;
     } catch (e) {

@@ -8,6 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Pessoa } from '../pessoa/pessoa.entity';
+import { Categoria } from '../categoria/categoria.entity';
 
 @Entity()
 export class Exame extends BaseEntity {
@@ -19,6 +20,9 @@ export class Exame extends BaseEntity {
 
   @ManyToOne(() => Pessoa, (pessoa) => pessoa.exames)
   pessoa: Pessoa;
+
+  @ManyToOne(() => Categoria, (categoria) => categoria.exames)
+  categoria: Categoria;
 
   @CreateDateColumn()
   createdAt: Date;
