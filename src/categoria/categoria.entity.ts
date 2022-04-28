@@ -3,10 +3,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
+import { Exame } from '../exame/exame.entity';
 
 @Entity()
 @Unique(['nome'])
@@ -25,4 +27,7 @@ export class Categoria extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Exame, (exame) => exame.categoria)
+  exames: Exame[];
 }
