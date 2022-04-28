@@ -55,6 +55,8 @@ export class ExameController {
     // Cria o novo exame
     const exame = await this.exameService.createExame(createExameDto);
 
+    const a = await this.pessoaService.findAllExames(createExameDto.pessoa_id);
+    console.log(a);
     return {
       exame,
       message: 'Exame cadastrado com sucesso.',

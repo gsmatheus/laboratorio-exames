@@ -13,4 +13,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   database: 'laboratorio-exames',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
+  logging: true,
+  logger: 'file',
 };
