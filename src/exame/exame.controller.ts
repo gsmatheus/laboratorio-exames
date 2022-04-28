@@ -3,6 +3,7 @@ import {
   Controller,
   NotFoundException,
   Post,
+  UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
 import { ExameService } from './exame.service';
@@ -10,6 +11,10 @@ import { CreateExameDto } from './dtos/create-exame.dto';
 import { ReturnExameDto } from './dtos/return-exame.dto';
 import { PessoaService } from '../pessoa/pessoa.service';
 import { CategoriaService } from '../categoria/categoria.service';
+import { Role } from '../auth/role.decorator';
+import { UserRole } from '../users/user-roles.enum';
+import { AuthGuard } from '@nestjs/passport';
+import { RolesGuard } from '../auth/roles.guard';
 
 @Controller('exame')
 export class ExameController {
@@ -20,6 +25,8 @@ export class ExameController {
   ) {}
 
   @Post()
+  @Role(UserRole.ADMIN)
+  @UseGuards(AuthGuard(), RolesGuard)
   async createExame(
     @Body(ValidationPipe) createExameDto: CreateExameDto,
   ): Promise<ReturnExameDto> {
