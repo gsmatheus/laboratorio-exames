@@ -34,7 +34,9 @@ export class PessoaRepository extends Repository<Pessoa> {
     } catch (e) {
       // Verifica se o erro causado foi por já existir um cadastro com o mesmo cpf ou email
       if (e.code.toString() === 'ER_DUP_ENTRY') {
-        throw new ConflictException('Já existe um cadastro com esse cpf');
+        throw new ConflictException(
+          'Email ou cpf já cadastrado em nossos sistemas.',
+        );
       } else {
         throw new InternalServerErrorException(
           'Não foi possivel cadastrar os dados, tente novamente.',

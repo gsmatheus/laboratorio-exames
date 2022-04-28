@@ -11,7 +11,7 @@ import {
 import { Exame } from '../exame/exame.entity';
 
 @Entity()
-@Unique(['cpf', 'email'])
+// @Unique(['cpf', 'email'])
 export class Pessoa extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -19,13 +19,13 @@ export class Pessoa extends BaseEntity {
   @Column({ nullable: false, type: 'varchar', length: 255 })
   nome_completo;
 
-  @Column({ nullable: false, type: 'varchar', length: 11 })
+  @Column({ unique: true, nullable: false, type: 'varchar', length: 11 })
   cpf;
 
   @Column({ nullable: false, type: 'varchar', length: 10 })
   data_nasc;
 
-  @Column({ nullable: false, type: 'varchar', length: 200 })
+  @Column({ unique: true, nullable: false, type: 'varchar', length: 200 })
   email: string;
 
   @Column({ nullable: false, default: true })
