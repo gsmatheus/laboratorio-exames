@@ -49,10 +49,9 @@ export class PessoaService {
         },
       },
       where: {
-        id: '9df24822-3cdb-4b3c-b35c-03465dd443db',
+        id: pessoaId,
       },
     });
-
     return pessoa[0].exames;
   }
 }
