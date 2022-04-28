@@ -8,8 +8,8 @@ Simples restapi feita para cadastrar os exames dos pacientes de um laboratorio.
 $ npm install
 ```
 
-## Running the app
-
+## Running the app 
+ 
 ```bash
 # development
 $ npm run start

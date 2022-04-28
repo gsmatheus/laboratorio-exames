@@ -37,3 +37,4 @@ lerna-debug.log*
 .idea/modules.xml
 
 package-lock.json
+documentation
