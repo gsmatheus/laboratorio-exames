@@ -6,11 +6,12 @@
 
 import { EntityRepository, Repository } from 'typeorm';
 import { Pessoa } from './pessoa.entity';
-import { CreatePessoaDto } from './dtos/create-pessoa.dto';
+import { CreatePessoaDto } from './dto/create-pessoa.dto';
 import {
   ConflictException,
   InternalServerErrorException,
 } from '@nestjs/common';
+import { CredentialsPessoaDto } from './dto/credentials-pessoa.dto';
 
 @EntityRepository(Pessoa)
 export class PessoaRepository extends Repository<Pessoa> {
@@ -43,5 +44,16 @@ export class PessoaRepository extends Repository<Pessoa> {
         );
       }
     }
+  }
+
+  async checkCredentials(
+    credentialsPessoaDto: CredentialsPessoaDto,
+  ): Promise<Pessoa> {
+    const { cpf, data_nasc } = credentialsPessoaDto;
+    const pessoa = await this.findOne({ cpf, status: true });
+    if (pessoa && (await pessoa.checkDataNasc(data_nasc))) {
+      return pessoa;
+    }
+    return null;
   }
 }

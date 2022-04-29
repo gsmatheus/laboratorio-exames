@@ -21,7 +21,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       select: ['name', 'email', 'status', 'role'],
     });
 
-    if (!user) throw new UnauthorizedException('Usuario não encontrado.');
+    if (!user) throw new UnauthorizedException('Usuario não encontrado...');
     return user;
   }
 }

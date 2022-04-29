@@ -39,4 +39,12 @@ export class Pessoa extends BaseEntity {
 
   @OneToMany(() => Exame, (exame) => exame.pessoa)
   exames: Exame[];
+
+  /**
+   * Verifica se a data de nascimento recebida é igual a do banco
+   * @param datanasc
+   */
+  async checkDataNasc(datanasc: string): Promise<boolean> {
+    return datanasc === this.data_nasc;
+  }
 }

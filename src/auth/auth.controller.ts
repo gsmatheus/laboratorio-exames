@@ -44,7 +44,6 @@ export class AuthController {
    * @param user
    */
   getMe(@GetUser() user: User): User {
-    console.log(user);
     return user;
   }
 }
