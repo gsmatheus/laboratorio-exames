@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { Exame } from './exame.entity';
-import { CreateExameDto } from './dtos/create-exame.dto';
+import { CreateExameDto } from './dto/create-exame.dto';
 import { InternalServerErrorException } from '@nestjs/common';
 
 @EntityRepository(Exame)

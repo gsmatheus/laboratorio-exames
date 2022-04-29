@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { Categoria } from './categoria.entity';
-import { CreateCategoriaDto } from './dtos/create-categoria.dto';
+import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import {
   ConflictException,
   InternalServerErrorException,

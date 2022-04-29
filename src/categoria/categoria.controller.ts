@@ -6,8 +6,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { CategoriaService } from './categoria.service';
-import { CreateCategoriaDto } from './dtos/create-categoria.dto';
-import { ReturnCategoriaDto } from './dtos/return-cateogira.dto';
+import { CreateCategoriaDto } from './dto/create-categoria.dto';
+import { ReturnCategoriaDto } from './dto/return-cateogira.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { RolesGuard } from '../auth/roles.guard';
 import { Role } from '../auth/role.decorator';

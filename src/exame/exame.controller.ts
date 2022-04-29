@@ -7,8 +7,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { ExameService } from './exame.service';
-import { CreateExameDto } from './dtos/create-exame.dto';
-import { ReturnExameDto } from './dtos/return-exame.dto';
+import { CreateExameDto } from './dto/create-exame.dto';
+import { ReturnExameDto } from './dto/return-exame.dto';
 import { PessoaService } from '../pessoa/pessoa.service';
 import { CategoriaService } from '../categoria/categoria.service';
 import { Role } from '../auth/role.decorator';
